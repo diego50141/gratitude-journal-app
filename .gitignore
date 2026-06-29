@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Vite build output (generado con `vite build`)
+static/
+
+# Claude Code (config y skills locales)
+.claude/
+
+# Editores / SO
+.DS_Store
+.idea/
+.vscode/
+*.log

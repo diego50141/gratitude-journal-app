@@ -1,0 +1,360 @@
+/* =====================================================================
+   Landing page — reutiliza los tokens del tema (definidos en index.css)
+   ===================================================================== */
+
+:root {
+  --landing-max: min(1040px, 92vw);
+}
+
+/* ============ Navbar compartida ============ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(13, 14, 17, 0.72);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__inner {
+  max-width: var(--landing-max);
+  margin: 0 auto;
+  padding: 0.85rem var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.navbar__brand {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 1.75rem);
+}
+
+.navbar__link {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+.navbar__cta {
+  padding: 0.42rem 0.95rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.18s, color 0.18s;
+}
+
+.navbar__cta:hover,
+.navbar__cta:focus-visible {
+  background-color: var(--accent);
+  color: #1a140b;
+  outline: none;
+}
+
+/* ============ Botón primario (compartido landing) ============ */
+.btn-primary {
+  display: inline-block;
+  padding: 0.85rem 1.9rem;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #1a140b;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(216, 178, 122, 0.18);
+  transition: background-color 0.18s, box-shadow 0.18s;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-strong);
+  box-shadow: 0 14px 38px rgba(216, 178, 122, 0.28);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+/* ============ Layout landing ============ */
+.landing {
+  width: 100%;
+}
+
+.landing > section {
+  max-width: var(--landing-max);
+  margin: 0 auto;
+  padding-block: clamp(3rem, 8vw, 6rem);
+  padding-inline: var(--space-md);
+}
+
+.section-title {
+  margin: 0 0 var(--space-lg);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  text-align: center;
+}
+
+/* ============ Hero ============ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(28rem, 72vh, 40rem);
+  text-align: center;
+}
+
+.hero__inner {
+  max-width: 46rem;
+}
+
+.hero__eyebrow {
+  margin: 0 0 var(--space-md);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 4.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.hero__subtitle {
+  margin: var(--space-md) auto 0;
+  max-width: 38ch;
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+.hero__actions {
+  margin-top: var(--space-lg);
+}
+
+/* ============ Qué es ============ */
+.about {
+  text-align: center;
+}
+
+.about__text {
+  max-width: 58ch;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+  line-height: 1.75;
+  color: var(--text-2);
+}
+
+/* ============ Beneficios ============ */
+.benefits__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 760px) {
+  .benefits__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.benefit-card {
+  padding: var(--space-lg) var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.benefit-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-bottom: var(--space-sm);
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  font-size: 1.5rem;
+}
+
+.benefit-card__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.benefit-card__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+/* ============ Cómo funciona ============ */
+.how__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 760px) {
+  .how__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.step {
+  text-align: center;
+}
+
+.step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.step__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.step__text {
+  margin: 0 auto;
+  max-width: 28ch;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+/* ============ CTA final ============ */
+.cta {
+  text-align: center;
+}
+
+.cta__title {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.cta__text {
+  margin: 0 auto var(--space-lg);
+  max-width: 40ch;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+/* ============ Footer ============ */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-lg);
+}
+
+.footer__inner {
+  max-width: var(--landing-max);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md) var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.footer__brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.footer__meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer__link {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--accent-strong);
+  outline: none;
+}
+
+.footer__copy {
+  max-width: var(--landing-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-lg);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
