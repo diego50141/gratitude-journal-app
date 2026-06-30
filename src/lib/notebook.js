@@ -2,7 +2,7 @@
 // La clave es la misma que la versión anterior, así que los diarios
 // existentes se cargan sin migración.
 
-import { daysBetween } from "./dates.js";
+import { dayOfYear } from "./dates.js";
 
 export const STORAGE_KEY = "gratitude-notebook-v1";
 export const NOTEBOOK_SIZE = 360;
@@ -49,7 +49,8 @@ export function persistNotebook(notebook) {
   }
 }
 
+// El número de página es el día del año actual (1 de enero = página 1),
+// independiente de cuándo se escribió la primera entrada.
 export function pageNumber(notebook, key) {
-  if (!notebook.startDate) return 1;
-  return daysBetween(notebook.startDate, key) + 1;
+  return dayOfYear(key);
 }

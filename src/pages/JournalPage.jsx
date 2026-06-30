@@ -118,7 +118,7 @@ export default function JournalPage() {
   };
 
   const page = notebook.getPageNumber(currentKey);
-  const atStart = !notebook.startDate || currentKey === notebook.startDate;
+  const atStart = page <= 1; // página 1 = 1 de enero
   const overflow = page > NOTEBOOK_SIZE;
 
   // --- Editores de campos ---

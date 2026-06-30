@@ -28,6 +28,13 @@ export function daysBetween(aKey, bKey) {
   return Math.round((b - a) / (1000 * 60 * 60 * 24));
 }
 
+// Número de día dentro del año (1 de enero = 1).
+export function dayOfYear(key) {
+  const d = parseKey(key);
+  const yearStart = new Date(d.getFullYear(), 0, 1);
+  return Math.round((d - yearStart) / (1000 * 60 * 60 * 24)) + 1;
+}
+
 const dateFormatter = new Intl.DateTimeFormat("es-CO", {
   weekday: "long",
   day: "numeric",
